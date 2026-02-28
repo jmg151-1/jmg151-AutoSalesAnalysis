@@ -9,7 +9,6 @@ Insights and recommendations are provided on the following key areas:
 * **Category 3:** Regional Analysis
 * **Category 4:** Customer Segmentation
 
----
 
 ## Tools & Technologies
 
@@ -22,7 +21,6 @@ Insights and recommendations are provided on the following key areas:
 
 **Pipeline:**  `Raw Data → Python (Cleaning) → MySQL (Analysis) → Power BI (Visualization)`
 
----
 
 ## Data Cleaning (Python)
 
@@ -32,8 +30,6 @@ The raw dataset was cleaned and preprocessed using **Pandas** prior to loading i
 - Validating data types across all columns
 - Ensuring consistency in categorical fields (e.g. `Fuel_Type`, `Region`, `Sales_Classification`)
 - Confirming `Total_Sales` alignment with `Price_USD` and `Unite_Sold`
-
----
 
 ## SQL Queries
 
@@ -51,15 +47,13 @@ The cleaned data was loaded into MySQL for analysis. Queries range from basic ag
 
 > See [`BMW_Sales_SQL_Queries.txt`](SQL/BMW_Sales_SQL_Queries.txt) for all queries.
 
----
-
 ## Power BI Dashboard
 
 The dashboard is built across three pages — Overview, Product & Vehicle Strategy, and Regional & Customer Segmentation — creating a clean, modern, and fully navigable interface.
 
 📊 **Power BI Dashboard Link**
 
----
+
 ## Executive Summary
 
 ### Overview of Findings
@@ -73,9 +67,6 @@ Across the 2010–2024 period, BMW's global sales network generated **$19.0T in 
 - High value transactions account for **30.5%** of all records (**15,246 transactions**), with the remaining 69.5% classified as Low
 - Average selling price across all markets was **$75.03K**, with average engine size of **3.25L**
 
-Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sections written out with the `**text**` syntax so you can copy and paste directly:
-
----
 
 ## Insights Deep Dive
 
@@ -91,8 +82,6 @@ Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sec
 
 **Sales & Units by Color:** **Red** and **Silver** vehicles marginally outperformed other colours at **43M units each** (16.9% and 16.8% respectively), with White, Grey, Blue, and Black all recording **42M units**. Revenue followed a similar pattern, with no colour significantly outperforming others.
 
----
-
 ### Category 2: Product & Vehicle Strategy
 
 **Average Selling Price:** The global average selling price across all models and regions was **$75.03K**, sitting at the midpoint of the **$0–$150.07K** pricing range. This reflects a balanced mix of entry-level and premium models in the overall sales composition.
@@ -105,8 +94,6 @@ Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sec
 
 **Average Engine Size:** The global average engine size is **3.25L**, consistent across all four fuel types. Regional engine size fluctuated between **3.1L and 3.3L** from 2010 to 2024, with the **Middle East** declining from **3.32L in 2010** to **3.14L in 2024** — the sharpest regional decline, suggesting a shift toward smaller engines in that market.
 
----
-
 ### Category 3: Regional Analysis
 
 **Revenue by Region:** **Asia** led all regions with **$3.25T** in total revenue and **42.97M units** sold, recording a YoY growth rate of **15.02%**. Europe followed at **$3.19T** (42.56M units, 14.79% YoY), North America at **$3.18T** (42.40M units, 13.66% YoY), Middle East at **$3.17T** (42.33M units), South America at **$3.11T** (41.55M units, 15.07% YoY), and Africa at **$3.11T** (41.57M units, 14.32% YoY). The narrow revenue range across all six regions (**$3.11T–$3.25T**) reflects a globally balanced sales distribution.
@@ -114,8 +101,6 @@ Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sec
 **Average Price by Region:** **Africa** and **North America** recorded the highest average selling prices at **$76K**, while Asia, Middle East, Europe, and South America each averaged **$75K**. The minimal variation confirms a globally standardised pricing strategy with limited regional price differentiation.
 
 **Average Engine Size by Region Over Time:** From 2010 to 2024, regional average engine sizes fluctuated between **3.1L and 3.3L**. The **Middle East** showed the most notable shift, declining from **3.32L in 2010** to **3.14L in 2024**, while **Africa** and **South America** ended the period highest at **3.29L** each.
-
----
 
 ### Category 4: Customer Segmentation
 
@@ -125,7 +110,6 @@ Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sec
 
 **High Class Transactions:** A total of **15,246** High classification transactions were recorded globally, distributed consistently across all six regions with no single market concentrating high value activity.
 
----
 
 ## Recommendations
 
@@ -140,8 +124,6 @@ Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sec
 **Standardise Global Pricing with Regional Incentives:** The near-uniform average selling price across all regions (**$75K–$76K**) confirms a globally standardised pricing strategy. While consistency supports brand positioning, introducing region-specific financing options or incentive programmes — particularly in **South America** and **Africa** where revenue lags — could stimulate growth in lower-performing markets.
 
 **Monitor 2022 Revenue Peak for Sustainability:** **2022** recorded the highest annual revenue at **$1.34T**, followed by a dip to **$1.22T** in 2023. Identifying the factors that drove the 2022 peak and replicating those conditions would be valuable for sustaining growth momentum.
-
----
 
 ## Assumptions
 
