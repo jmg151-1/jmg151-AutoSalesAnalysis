@@ -1,14 +1,13 @@
 # BMW Global End-to-End Sales Analytics
+Comprehensive end-to-end analysis of BMW global sales performance, customer segmentation, and regional revenue trends across 6 markets using Python, SQL, and Power BI.
+This project details the development and analysis of an interactive Power BI dashboard focusing on sales performance, product strategy, and regional customer segmentation data across six global markets. The dataset, covering 2010 to 2024, was cleaned, preprocessed, and visualized. The dashboard tracks key performance indicators such as total revenue, total units sold, year-over-year growth, and average selling price. It aims to provide sales strategists, regional managers, and product teams with comprehensive insights to optimise market strategy, identify high-performing regions and models, and understand customer segmentation patterns globally.
 
-Comprehensive analysis of BMW global sales performance, customer segmentation, and regional revenue trends across 6 markets.
+Insights and recommendations are provided on the following key areas:
 
----
-
-## Project Overview
-
-This end-to-end data analytics project explores 50,000 BMW sales transactions spanning multiple regions, models, and years. The goal was to uncover revenue trends, identify top-performing markets and models, and segment customers by classification — moving the data through a full analytics pipeline from raw CSV to interactive dashboard.
-
-**Pipeline:**  `Raw Data → Python (Cleaning) → MySQL (Analysis) → Power BI (Visualization)`
+* **Category 1:** Revenue & Sales Performance
+* **Category 2:** Product & Vehicle Strategy
+* **Category 3:** Regional Analysis
+* **Category 4:** Customer Segmentation
 
 ---
 
@@ -20,6 +19,8 @@ This end-to-end data analytics project explores 50,000 BMW sales transactions sp
 | MySQL | Data storage and exploratory analysis |
 | Power BI | Interactive multi-page dashboard |
 | CSV | Source data format |
+
+**Pipeline:**  `Raw Data → Python (Cleaning) → MySQL (Analysis) → Power BI (Visualization)`
 
 ---
 
@@ -59,63 +60,98 @@ The dashboard is built across three pages — Overview, Product & Vehicle Strate
 📊 **Power BI Dashboard Link**
 
 ---
+## Executive Summary
 
-### Page 1: Overview
+### Overview of Findings
+Across the 2010–2024 period, BMW's global sales network generated **$19.0T in total revenue** from **253M units sold** across six regions and eleven models, reflecting a year-over-year growth rate of **14.53%**. Revenue performance was broadly consistent across all regions and models, with no single market or vehicle dominating the portfolio — a pattern that points to a globally standardised pricing and product strategy.
 
-**KPI Cards:** Total Revenue (19.0T), Total Units (253M), PY Revenue (1.22T), YoY Growth % (14.53), High Value % (0.51)
+- Total revenue reached **$19.0T**, with prior year revenue of **$1.22T** and a YoY growth rate of **14.53%**
+- **Asia** was the top performing region by total revenue at **$3.25T**, followed by Europe ($3.19T) and North America ($3.18T)
+- The **7 Series** was the top model by revenue at **$1.79T**, followed closely by the 3 Series ($1.77T) and i8 ($1.76T)
+- **Hybrid** vehicles led all fuel types in both revenue (**$4.82T, 25.4%**) and units sold (**65M**)
+- Revenue peaked in **2022 at $1.34T**, the highest single year across the full 14-year period
+- High value transactions account for **30.5%** of all records (**15,246 transactions**), with the remaining 69.5% classified as Low
+- Average selling price across all markets was **$75.03K**, with average engine size of **3.25L**
 
-**Revenue by Fuel Type:** Fuel type revenue is evenly distributed across all four types — Hybrid leads at 4.82T (25.4%), followed by Petrol at 4.76T (25.0%), Electric at 4.75T (25.0%), and Diesel at 4.68T (24.6%). This near-equal split suggests no single powertrain dominates BMW's global revenue.
-
-**Sales & Units by Color:** Sales revenue and units sold are tracked across six vehicle colours — Red, Silver, White, Blue, Grey, and Black. Red and Silver lead slightly in both sales (~4T each) and units (~43M each), though colour performance is broadly consistent across all options, ranging between 42M–43M units.
-
-**Top 5 Models by Revenue:** The 7 Series leads all models at 1.79T in total revenue, followed closely by the 3 Series (1.77T), i8 (1.76T), X1 (1.75T), and 5 Series (1.74T). Revenue is highly competitive across the top five, with less than 50B separating first and fifth place.
-
-**Total Revenue and PY Revenue by Year:** Both Total Revenue and Prior Year Revenue are tracked from 2010 to 2024, with values oscillating between 1.2T and 1.3T annually. Revenue peaked around 2020–2022 before a slight decline toward 2024.
-
-**Revenue by Geography:** Bubble map visualising total revenue and units by region. Asia leads with $3.25T in revenue and 42.97M units (YoY Growth: 15.02%), followed by Europe at $3.19T and 42.56M units (YoY Growth: 14.79%), North America at $3.18T and 42.40M units (YoY Growth: 13.66%), South America at $3.11T and 41.55M units (YoY Growth: 15.07%), and Africa at $3.11T and 41.57M units (YoY Growth: 14.32%).
-
----
-
-### Page 2: Product & Vehicle Strategy
-
-**KPI Cards:** Avg Selling Price (75.03K), Eco Share % (0.50), Avg Engine Size (3.25L), Top Model (7 Series), Diesel Share % (0.25)
-
-**Average Selling Price:** The gauge tracks average selling price against a maximum of 150.07K, currently sitting at 75.03K — representing the midpoint of the pricing range, suggesting a balanced mix of entry-level and premium models in the sales mix.
-
-**Sales Volume by Fuel Type:** Hybrid leads sales volume at 65M units, followed by Petrol (63M), Electric (63M), and Diesel (62M). All four fuel types account for 96.6% of total volume collectively, with Hybrid holding a slight edge.
-
-**Price vs. Mileage Strategy:** Plots individual transactions by price (up to 0.4M) against mileage (up to 0.2M KM), segmented by High and Low classification. High classification vehicles are concentrated at lower mileage and higher price points, while Low classification vehicles cluster at higher mileage and lower price ranges — consistent with expected depreciation patterns.
-
-**Units Sold by Color:** Units are evenly distributed across all six colours, each accounting for approximately 16.5%–16.9% of total units sold. White and Silver lead marginally at 43M each (16.87% and 16.8% respectively).
-
-**Transmission Preference by Region:** Automatic and Manual transmission preference is split almost exactly 50/50 across all six regions, with no region showing a meaningful preference for either transmission type.
+Got it! Here's the full Insights Deep Dive, Recommendations, and Assumptions sections written out with the `**text**` syntax so you can copy and paste directly:
 
 ---
 
-### Page 3: Regional & Customer Segmentation
+## Insights Deep Dive
 
-**KPI Cards:** NA Revenue (3T), EU Revenue (3T), Asia Revenue (3T), High Class Txns (15K), Avg Units/Deal (5.07K)
+### Category 1: Revenue & Sales Performance
 
-**Revenue by Region:** Cumulative revenue builds from Asia (lowest individual contribution) through Europe, North America, Middle East, South America, and Africa, totalling approximately 19T globally. Each region contributes roughly 3T, reflecting a well-balanced global sales distribution.
+**Total Revenue & Units:** The dashboard recorded **$19.0T** in total revenue and **253M units** sold across the full period, with a YoY growth rate of **14.53%**. Prior year revenue of **$1.22T** provides a useful benchmark for evaluating current performance.
 
-**Customer Classification by Region:** High vs Low classification is broken down by region. Asia has the highest High classification share at 31.70%, followed by North America (31.40%), Europe (31.27%), Africa (30.53%), Middle East (29.98%), and South America (28.87%). The narrow range across all regions (28.87%–31.70%) indicates that customer classification is not strongly influenced by geography.
+**Revenue by Year:** Annual revenue fluctuated between **$1.22T (2023)** and **$1.34T (2022)**, showing no sustained upward or downward trend across the 14-year window. Revenue was relatively stable from 2010 through 2021 before a notable peak in 2022 followed by a dip in 2023 and recovery in 2024 (**$1.31T**).
 
-**Average Price by Region:** Africa and North America lead with an average selling price of 76K, while Asia, Middle East, Europe, and South America all record 75K. Pricing is consistent across markets, suggesting a globally standardised pricing strategy with minimal regional variation.
+**Revenue by Fuel Type:** **Hybrid** vehicles led total revenue at **$4.82T (25.4%)**, followed by Petrol (**$4.76T, 25.0%**), Electric (**$4.75T, 25.0%**), and Diesel (**$4.68T, 24.6%**). The near-equal split across all four fuel types suggests BMW's global revenue is not dependent on any single powertrain — an indicator of a well-diversified product portfolio.
 
-**Average Engine Size by Year and Region:** Average engine size across all six regions is tracked from 2010 to 2024, fluctuating between 3.1L and 3.3L throughout the period. In 2010, the Middle East recorded the largest average engine size at 3.32L, followed by North America (3.30L) and South America (3.27L). By 2024, Africa and South America lead at 3.29L, while the Middle East has declined the most sharply to 3.14L — suggesting a regional shift toward smaller, more fuel-efficient engines over the 14-year period.
+**Top 5 Models by Revenue:** The **7 Series** led all models at **$1.79T**, followed by the 3 Series (**$1.77T**), i8 (**$1.76T**), X1 (**$1.75T**), and 5 Series (**$1.74T**). The gap between first and fifth place is less than **$50B**, highlighting the competitiveness of BMW's model lineup.
+
+**Sales & Units by Color:** **Red** and **Silver** vehicles marginally outperformed other colours at **43M units each** (16.9% and 16.8% respectively), with White, Grey, Blue, and Black all recording **42M units**. Revenue followed a similar pattern, with no colour significantly outperforming others.
+
+---
+
+### Category 2: Product & Vehicle Strategy
+
+**Average Selling Price:** The global average selling price across all models and regions was **$75.03K**, sitting at the midpoint of the **$0–$150.07K** pricing range. This reflects a balanced mix of entry-level and premium models in the overall sales composition.
+
+**Sales Volume by Fuel Type:** **Hybrid** led unit sales at **65M**, followed by Petrol (**63M**), Electric (**63M**), and Diesel (**62M**). All four fuel types collectively account for **96.6%** of total volume. The Eco Share % (Hybrid + Electric combined) stands at **0.50**, indicating that eco-friendly vehicles account for half of all revenue generated.
+
+**Price vs. Mileage Strategy:** **High** classification vehicles cluster at lower mileage and higher price points (up to **$0.4M**), while **Low** classification vehicles concentrate at higher mileage and lower price ranges — consistent with standard vehicle depreciation patterns. This confirms that Sales_Classification is strongly correlated with both price and mileage.
+
+**Transmission Preference by Region:** Automatic and Manual transmission preference is split almost exactly **50/50** across all six regions, with no region showing a meaningful preference for either type. This suggests transmission type is not a regionally driven purchasing factor for BMW customers globally.
+
+**Average Engine Size:** The global average engine size is **3.25L**, consistent across all four fuel types. Regional engine size fluctuated between **3.1L and 3.3L** from 2010 to 2024, with the **Middle East** declining from **3.32L in 2010** to **3.14L in 2024** — the sharpest regional decline, suggesting a shift toward smaller engines in that market.
 
 ---
 
-## Key Insights
+### Category 3: Regional Analysis
 
-- **Africa** generated the highest total revenue among all regions
-- **7 Series** was the top performing model by total revenue globally
-- **Hybrid** vehicles were the most frequently sold fuel type
-- **2022** was the highest revenue year in the dataset
-- Customer classification (High vs Low) is evenly distributed across all regions (~30/70 split), suggesting classification is driven by factors other than geography
-- Top models vary by region — Asia leads with the X1, Europe with the i8, and the Middle East with the 7 Series
+**Revenue by Region:** **Asia** led all regions with **$3.25T** in total revenue and **42.97M units** sold, recording a YoY growth rate of **15.02%**. Europe followed at **$3.19T** (42.56M units, 14.79% YoY), North America at **$3.18T** (42.40M units, 13.66% YoY), Middle East at **$3.17T** (42.33M units), South America at **$3.11T** (41.55M units, 15.07% YoY), and Africa at **$3.11T** (41.57M units, 14.32% YoY). The narrow revenue range across all six regions (**$3.11T–$3.25T**) reflects a globally balanced sales distribution.
+
+**Average Price by Region:** **Africa** and **North America** recorded the highest average selling prices at **$76K**, while Asia, Middle East, Europe, and South America each averaged **$75K**. The minimal variation confirms a globally standardised pricing strategy with limited regional price differentiation.
+
+**Average Engine Size by Region Over Time:** From 2010 to 2024, regional average engine sizes fluctuated between **3.1L and 3.3L**. The **Middle East** showed the most notable shift, declining from **3.32L in 2010** to **3.14L in 2024**, while **Africa** and **South America** ended the period highest at **3.29L** each.
 
 ---
+
+### Category 4: Customer Segmentation
+
+**High vs. Low Classification:** Of the **50,000 transactions**, **15,246 (30.5%)** were classified as High value and **34,754 (69.5%)** as Low. High value transactions generated a disproportionate share of total revenue, reflected in the High Value % KPI of **0.51**.
+
+**Customer Classification by Region:** **Asia** recorded the highest High classification share at **31.70%**, followed by North America (**31.40%**), Europe (**31.27%**), Africa (**30.53%**), Middle East (**29.98%**), and South America (**28.87%**). The narrow range across all regions confirms that customer classification is not geographically driven — High value customers are distributed evenly across all markets.
+
+**High Class Transactions:** A total of **15,246** High classification transactions were recorded globally, distributed consistently across all six regions with no single market concentrating high value activity.
+
+---
+
+## Recommendations
+
+**Invest in Hybrid and Electric Product Lines:** With Eco Share % at **0.50** and **Hybrid** leading both revenue and unit sales, continued investment in eco-friendly powertrains is well-supported by the data. Expanding the Hybrid and Electric lineup could capture additional market share as global demand for sustainable vehicles grows.
+
+**Leverage Asia's Growth Momentum:** **Asia** leads all regions in total revenue (**$3.25T**) and YoY growth (**15.02%**). Targeted marketing campaigns, expanded dealership networks, and region-specific model offerings could further capitalise on this momentum.
+
+**Address the Middle East Engine Size Trend:** The **Middle East's** average engine size declined from **3.32L in 2010** to **3.14L in 2024** — the sharpest regional decline observed. This may signal a shift in customer preference toward more fuel-efficient vehicles, warranting a review of the model mix offered in that market.
+
+**Develop High Value Customer Retention Programmes:** With High classification customers accounting for **30.5%** of transactions and **51%** of revenue, developing loyalty programmes, priority service offerings, and personalised outreach strategies targeting this segment could meaningfully increase lifetime customer value.
+
+**Standardise Global Pricing with Regional Incentives:** The near-uniform average selling price across all regions (**$75K–$76K**) confirms a globally standardised pricing strategy. While consistency supports brand positioning, introducing region-specific financing options or incentive programmes — particularly in **South America** and **Africa** where revenue lags — could stimulate growth in lower-performing markets.
+
+**Monitor 2022 Revenue Peak for Sustainability:** **2022** recorded the highest annual revenue at **$1.34T**, followed by a dip to **$1.22T** in 2023. Identifying the factors that drove the 2022 peak and replicating those conditions would be valuable for sustaining growth momentum.
+
+---
+
+## Assumptions
+
+- Data completeness and accuracy are assumed following the cleaning and transformation process in **Python (Pandas)**.
+- All KPIs and DAX measures are calculated based solely on the provided dataset without external imputation.
+- `Total_Sales` is assumed to be accurately derived from `Price_USD × Unite_Sold` for each transaction.
+- `Sales_Classification` (High/Low) is assumed to be consistently applied across all regions and model types using a standardised internal classification methodology.
+- The dataset is synthetic and intended for analytical and portfolio demonstration purposes only.
+- All revenue figures are denominated in **USD** and no currency conversion adjustments have been applied.
+- The average engine size of **3.24L–3.25L** across all fuel types, including Electric, reflects the synthetic nature of the dataset as real-world Electric vehicles do not have combustion engine displacements.
 
 ## Dataset
 
