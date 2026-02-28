@@ -1,1 +1,154 @@
-text
+BMW Global Sales Analytics - SQL Queries
+MySQL
+
+-- =============================================
+-- QUERY 1: Total Revenue and Units Sold by Region
+-- =============================================
+
+SELECT Region,
+       SUM(Total_Sales) AS Total_Revenue,
+       SUM(Unite_Sold)  AS Total_Units
+FROM bmw_sales
+GROUP BY Region
+ORDER BY Total_Revenue DESC;
+
+
+-- =============================================
+-- QUERY 2: Top 5 Models by Total Revenue
+-- =============================================
+
+SELECT Model,
+       SUM(Total_Sales) AS Total_Revenue
+FROM bmw_sales
+GROUP BY Model
+ORDER BY Total_Revenue DESC
+LIMIT 5;
+
+
+-- =============================================
+-- QUERY 3: Average Selling Price by Fuel Type and Classification
+-- =============================================
+
+SELECT Fuel_Type,
+       Sales_Classification,
+       ROUND(AVG(Price_USD), 2) AS Avg_Price
+FROM bmw_sales
+GROUP BY Fuel_Type, Sales_Classification
+ORDER BY Fuel_Type, Sales_Classification;
+
+
+-- =============================================
+-- QUERY 4: YoY Revenue Growth by Region (CTE)
+-- =============================================
+
+WITH yearly_revenue AS (
+    SELECT Region,
+           Year,
+           SUM(Total_Sales) AS Total_Revenue
+    FROM bmw_sales
+    GROUP BY Region, Year
+)
+SELECT Region,
+       Year,
+       Total_Revenue,
+       LAG(Total_Revenue) OVER (PARTITION BY Region ORDER BY Year) AS Prev_Year_Revenue,
+       ROUND((Total_Revenue - LAG(Total_Revenue) OVER (PARTITION BY Region ORDER BY Year))
+             / LAG(Total_Revenue) OVER (PARTITION BY Region ORDER BY Year) * 100, 2) AS YoY_Growth_Pct
+FROM yearly_revenue;
+
+
+-- =============================================
+-- QUERY 5: Rank Models by Revenue Within Each Region (Window Function)
+-- =============================================
+
+SELECT Region,
+       Model,
+       SUM(Total_Sales) AS Total_Revenue,
+       RANK() OVER (PARTITION BY Region ORDER BY SUM(Total_Sales) DESC) AS Revenue_Rank
+FROM bmw_sales
+GROUP BY Region, Model;
+
+
+-- =============================================
+-- QUERY 6: Regions Where Electric Vehicle Sales Exceed the Global Average (Subquery)
+-- =============================================
+
+SELECT Region,
+       COUNT(*) AS Electric_Sales
+FROM bmw_sales
+WHERE Fuel_Type = 'Electric'
+GROUP BY Region
+HAVING COUNT(*) > (
+    SELECT COUNT(*) / COUNT(DISTINCT Region)
+    FROM bmw_sales
+    WHERE Fuel_Type = 'Electric'
+);
+
+
+-- =============================================
+-- QUERY 7: Running Total of Revenue by Year (Window Function)
+-- =============================================
+
+SELECT Year,
+       SUM(Total_Sales)                            AS Yearly_Revenue,
+       SUM(SUM(Total_Sales)) OVER (ORDER BY Year)  AS Running_Total
+FROM bmw_sales
+GROUP BY Year
+ORDER BY Year;
+
+
+-- =============================================
+-- QUERY 8: High Value Customer % by Region (CTE)
+-- =============================================
+
+WITH classification_counts AS (
+    SELECT Region,
+           Sales_Classification,
+           COUNT(*) AS Total
+    FROM bmw_sales
+    GROUP BY Region, Sales_Classification
+),
+region_totals AS (
+    SELECT Region, SUM(Total) AS Region_Total
+    FROM classification_counts
+    GROUP BY Region
+)
+SELECT c.Region,
+       c.Sales_Classification,
+       c.Total,
+       ROUND(c.Total / r.Region_Total * 100, 2) AS Pct_of_Region
+FROM classification_counts c
+JOIN region_totals r ON c.Region = r.Region
+ORDER BY c.Region, c.Sales_Classification;
+
+
+=========================================
+
+
+-- TABLE SETUP
+-- =============================================
+
+CREATE TABLE bmw_sales (
+    Customer_ID          INT PRIMARY KEY,
+    Model                VARCHAR(50),
+    Year                 INT,
+    Region               VARCHAR(50),
+    Color                VARCHAR(20),
+    Fuel_Type            VARCHAR(20),
+    Transmission         VARCHAR(20),
+    Engine_Size_L        DECIMAL(3,1),
+    Mileage_KM           INT,
+    Price_USD            INT,
+    Unite_Sold           INT,
+    Sales_Classification VARCHAR(10),
+    Total_Sales          BIGINT
+);
+
+LOAD DATA INFILE '/path/to/BMW_Sales.csv'
+INTO TABLE bmw_sales
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(Customer_ID, Model, Year, Region, Color, Fuel_Type, Transmission,
+ Engine_Size_L, Mileage_KM, Price_USD, Unite_Sold, Sales_Classification, Total_Sales);
