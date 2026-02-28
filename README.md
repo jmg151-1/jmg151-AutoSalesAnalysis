@@ -48,7 +48,7 @@ The cleaned data was loaded into MySQL for analysis. Queries range from basic ag
 - Running total of revenue by year *(SUM OVER window function)*
 - High value customer % by region *(Multi-CTE)*
 
-> See [`BMW_Sales_SQL_Queries.txt`](./BMW_Sales_SQL_Queries.txt) for all queries.
+> See [`BMW_Sales_SQL_Queries.txt`](SQL/BMW_Sales_SQL_Queries.txt) for all queries.
 
 ---
 
