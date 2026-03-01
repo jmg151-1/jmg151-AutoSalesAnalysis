@@ -47,6 +47,16 @@ The cleaned data was loaded into MySQL for analysis. Queries range from basic ag
 
 > See [`BMW_Sales_SQL_Queries.txt`](SQL/BMW_Sales_SQL_Queries.txt) for all queries.
 
+## Calculated DAX Measures
+
+* **Total Revenue:** Sum of `Total_Sales` across all transactions
+* **Total Units:** Sum of `Unite_Sold` across all transactions
+* **YoY Growth %:** Year-over-year percentage change between Total Revenue and PY Revenue
+* **PY Revenue:** Prior year revenue calculated using `VAR CurrentYear = MAX(Year)` to return the previous year's total
+* **High Value %:** Proportion of total revenue attributed to High classification transactions
+* **Top Model:** Dynamically identifies the model with the highest Total Revenue using `TOPN()`
+Additional DAX measures for regional revenue breakdowns (NA, EU, Asia), average selling price, average engine size, units per deal, eco share %, and diesel share %
+
 ## Power BI Dashboard
 
 The dashboard is built across three pages — Overview, Product & Vehicle Strategy, and Regional & Customer Segmentation — creating a clean, modern, and fully navigable interface.
