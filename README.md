@@ -92,6 +92,8 @@ Across the 2010–2024 period, BMW's global sales network generated **$19.0T in 
 
 **Sales & Units by Color:** **Red** and **Silver** vehicles marginally outperformed other colours at **43M units each** (16.9% and 16.8% respectively), with White, Grey, Blue, and Black all recording **42M units**. Revenue followed a similar pattern, with no colour significantly outperforming others.
 
+![image](Visuals/UI-BMW1.png)
+
 ### Category 2: Product & Vehicle Strategy
 
 **Average Selling Price:** The global average selling price across all models and regions was **$75.03K**, sitting at the midpoint of the **$0–$150.07K** pricing range. This reflects a balanced mix of entry-level and premium models in the overall sales composition.
@@ -103,6 +105,8 @@ Across the 2010–2024 period, BMW's global sales network generated **$19.0T in 
 **Transmission Preference by Region:** Automatic and Manual transmission preference is split almost exactly **50/50** across all six regions, with no region showing a meaningful preference for either type. This suggests transmission type is not a regionally driven purchasing factor for BMW customers globally.
 
 **Average Engine Size:** The global average engine size is **3.25L**, consistent across all four fuel types. Regional engine size fluctuated between **3.1L and 3.3L** from 2010 to 2024, with the **Middle East** declining from **3.32L in 2010** to **3.14L in 2024** — the sharpest regional decline, suggesting a shift toward smaller engines in that market.
+
+![image](Visuals/UI-BM2.png)
 
 ### Category 3: Regional Analysis
 
@@ -119,6 +123,8 @@ Across the 2010–2024 period, BMW's global sales network generated **$19.0T in 
 **Customer Classification by Region:** **Asia** recorded the highest High classification share at **31.70%**, followed by North America (**31.40%**), Europe (**31.27%**), Africa (**30.53%**), Middle East (**29.98%**), and South America (**28.87%**). The narrow range across all regions confirms that customer classification is not geographically driven — High value customers are distributed evenly across all markets.
 
 **High Class Transactions:** A total of **15,246** High classification transactions were recorded globally, distributed consistently across all six regions with no single market concentrating high value activity.
+
+![image](Visuals/UI-BMW3.png)
 
 
 ## Recommendations
